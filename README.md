@@ -1,5 +1,8 @@
 # T3A2-B - Kimchi & Kpop
 
+##  Other software
+
+https://www.npmjs.com/package/react-datetime-picker
 ## License
 
 ### MIT License
