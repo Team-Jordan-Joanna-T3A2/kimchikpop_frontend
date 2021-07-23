@@ -1,6 +1,6 @@
 import React from 'react';
 import { createTheme, makeStyles, ThemeProvider } from '@material-ui/core/styles';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 // CSS
 import './styles/App.css';
@@ -11,6 +11,7 @@ import './styles/fonts.css';
 import CustomerPortal from './pages/CustomerPortal';
 import CustomerBook from './pages/CustomerBook';
 import StaffPortal from './pages/StaffPortal';
+import NotFound from './pages/NotFound';
 
 
 
@@ -23,8 +24,11 @@ const theme = createTheme({
 function App() {
   return (
     <Router>
-      <Route path="/" component={CustomerPortal} />
-      <Route path="/staff" component={StaffPortal} />
+      <Switch>
+        <Route exact path="/" component={CustomerPortal} />
+        <Route path="/staff" component={StaffPortal} />
+        <Route component={NotFound}/>
+      </Switch>
     </Router>
   );
 }

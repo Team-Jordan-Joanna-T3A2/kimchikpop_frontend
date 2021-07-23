@@ -12,7 +12,7 @@ import clsx from "clsx";
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
-    marginBottom: 60,
+    marginBottom: 80,
   },
   appBar: {
     backgroundColor: "black",
@@ -120,8 +120,20 @@ export default function ButtonAppBar(props) {
               <MenuIcon />
             </IconButton> */}
             <Grid className={classes.staffButtons}>
-              <Button color="inherit">HOME</Button>
-              <Button color="inherit">LOG OUT</Button>
+              <Button
+                color="inherit"
+                variant="outlined"
+                className={classes.button}
+              >
+                HOME
+              </Button>
+              <Button
+                color="inherit"
+                variant="outlined"
+                className={classes.button}
+              >
+                LOG OUT
+              </Button>
             </Grid>
           </Toolbar>
         </AppBar>
