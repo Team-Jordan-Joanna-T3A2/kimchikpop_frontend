@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -82,6 +83,8 @@ export default function ButtonAppBar(props) {
                 variant="outlined"
                 color="inherit"
                 className={clsx(classes.button, classes.desktopButton)}
+                component={Link}
+                to="/"
               >
                 HOME
               </Button>
@@ -111,19 +114,13 @@ export default function ButtonAppBar(props) {
       <div className={classes.root}>
         <AppBar className={classes.appBar}>
           <Toolbar>
-            {/* <IconButton
-              edge="start"
-              className={classes.menuButton}
-              color="inherit"
-              aria-label="menu"
-            >
-              <MenuIcon />
-            </IconButton> */}
             <Grid className={classes.staffButtons}>
               <Button
                 color="inherit"
                 variant="outlined"
                 className={classes.button}
+                component={Link}
+                to="/staff"
               >
                 HOME
               </Button>
