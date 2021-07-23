@@ -21,7 +21,8 @@ const theme = createTheme({
     secondary: {
       main: '#FFFFFF',
     }
-  }
+  },
+  buttonWidth: "100px",
 });
 
 
