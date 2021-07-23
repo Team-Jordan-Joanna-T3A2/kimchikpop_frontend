@@ -13,23 +13,29 @@ import CustomerBook from './pages/CustomerBook';
 import StaffPortal from './pages/StaffPortal';
 import NotFound from './pages/NotFound';
 
-
-
 const theme = createTheme({
-  primary: '#000000',
-  secondary: '#ffffff',
+  palette: {
+    primary: {
+      main: '#000000',
+    },
+    secondary: {
+      main: '#FFFFFF',
+    }
+  }
 });
 
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/" component={CustomerPortal} />
-        <Route path="/staff" component={StaffPortal} />
-        <Route component={NotFound}/>
-      </Switch>
-    </Router>
+    <ThemeProvider theme={theme}>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={CustomerPortal} />
+          <Route path="/staff" component={StaffPortal} />
+          <Route component={NotFound}/>
+        </Switch>
+      </Router>
+    </ThemeProvider>
   );
 }
 
