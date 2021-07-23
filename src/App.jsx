@@ -24,7 +24,6 @@ function App() {
   return (
     <Router>
       <Route path="/" component={CustomerPortal} />
-      <Route path="/book" component={CustomerBook} />
       <Route path="/staff" component={StaffPortal} />
     </Router>
   );
