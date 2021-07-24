@@ -7,6 +7,7 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
+    // alignItems: 'center',
     marginTop: "-40px",
     height: "80vh",
     padding: "0px 10px 10px 10px"
