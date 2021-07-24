@@ -9,45 +9,36 @@ import InfoMobile1 from "./info/InfoMobile1";
 import InfoMobile2 from "./info/InfoMobile2";
 import InfoMobile3 from "./info/InfoMobile3";
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    // display: "flex",
-    // alignItems: "center",
-    // justifyContent: "center",
-  },
-}));
-
 const styles = {
   slide: {
     padding: 15,
-    width: "400px",
-    minHeight: 100,
-    color: "#fff",
+    margin: "0 auto",
+    width: "600px",
+    minHeight: "500px",
   },
   slide1: {
-    backgroundColor: "#FEA900",
+    backgroundColor: "transparent",
   },
   slide2: {
-    backgroundColor: "#B3DC4A",
+    backgroundColor: "transparent",
   },
   slide3: {
-    backgroundColor: "#6AC0FF",
+    backgroundColor: "transparent",
   },
 };
 
 const InfoCarousel = () => {
-  const classes = useStyles();
   return (
-    <Grid className={classes.root}>
+    <Grid>
       <SwipeableViews enableMouseEvents>
         <div style={Object.assign({}, styles.slide, styles.slide1)}>
-          slide n°1
+          <InfoMobile1/>
         </div>
         <div style={Object.assign({}, styles.slide, styles.slide2)}>
-          slide n°2
+          <InfoMobile2/>
         </div>
         <div style={Object.assign({}, styles.slide, styles.slide3)}>
-          slide n°3
+          <InfoMobile3/>
         </div>
       </SwipeableViews>
     </Grid>
