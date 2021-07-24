@@ -1,6 +1,6 @@
 import React from 'react';
 import Nav from '../components/Nav';
-import InfoMobile1 from '../components/InfoMobile1';
+import InfoCarousel from '../components/InfoCarousel';
 import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(theme => ({
@@ -16,7 +16,7 @@ const CustomerPortal = () => {
         <div>
         <Nav type="public"/>
         <h1 className={classes.title}>KIMCHI&KPOP</h1>
-        <InfoMobile1/>
+        <InfoCarousel/>
         </div>
     );
 }
