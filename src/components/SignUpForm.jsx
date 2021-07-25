@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
@@ -15,28 +15,58 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const SignUpForm = () => {
+  const [signUpForm, setSignUpForm] = useState({
+    user:{
+      username: '',
+      password: '',
+      password_confirmation: '',
+      user_type:''
+    }
+  })
+
   const classes = useStyles();
+
+  const changeInput = e => {
+    setSignUpForm({
+      user:{
+        ...signUpForm.user,
+        [e.target.name] : e.target.value
+      }
+    })
+  }
+
+  const submitForm = () => {
+    axios.post(/* url */, signUpForm)
+    .then(console.log("Successfully sent POST request"))
+    .catch(err => console.log(err));
+  }
+
+
+  const {username, password, password_confirmation, user_type} = signUpForm.user
   return (
     <div>
 
       Create a New Account
       <Grid className={classes.formField}>
-        <form className="signup-form">
+        <form className="signup-form" >
+
         <label className={classes.label}>Username:</label>
-        <input type="username" />
+        <input type="text" value ={username} onChange={changeInput} name='username' />
 
         <label className={classes.label}>Password:</label>
-        <input type="password" />
+        <input type="password" value ={password} onChange={changeInput} name='password' />
 
         <label className={classes.label}>Confirm Password:</label>
-        <input type="confirm password" />
+        <input type="password" value ={password_confirmation} onChange={changeInput} name='password_confirmation' />
 
         <label className={classes.label}>User Type:</label>
-        <input type="user type" />
+        <input type="text" value ={user_type} onChange={changeInput} name='user_type'/>
+
+        {/* <input type="submit" value="Add New Staff" /> */}
         </form>
 
+        <Button variant="contained" color="primary" id="submit" className={classes.submit} onClick={submitForm}>ADD NEW STAFF</Button>
 
-      <Button variant="contained" color="primary" id="submit" className={classes.submit}>SUBMIT</Button>
 
       </Grid>
 
