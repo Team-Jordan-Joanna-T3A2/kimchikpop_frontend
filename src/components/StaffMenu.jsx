@@ -24,6 +24,14 @@ const StaffMenu = () => {
           variant="contained"
           color="primary"
         >
+          CREATE A NEW STAFF ACCOUNT
+        </Button>
+
+        <Button
+          className={classes.menuButton}
+          variant="contained"
+          color="primary"
+        >
           TODAY'S BOOKINGS
         </Button>
         <Button

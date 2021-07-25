@@ -11,6 +11,7 @@ import './styles/fonts.css';
 import CustomerPortal from './pages/CustomerPortal';
 import CustomerBook from './pages/CustomerBook';
 import StaffPortal from './pages/StaffPortal';
+import StaffSignUp from './pages/StaffSignUp';
 import NotFound from './pages/NotFound';
 
 const theme = createTheme({
@@ -32,7 +33,8 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={CustomerPortal} />
-          <Route path="/staff" component={StaffPortal} />
+          <Route exact path="/staff" component={StaffPortal} />
+          <Route exact path="/staff/sign-up" component={StaffSignUp} />
           <Route component={NotFound}/>
         </Switch>
       </Router>
