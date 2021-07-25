@@ -8,13 +8,19 @@ const useStyles = makeStyles(theme => ({
   title: {
     letterSpacing: "-2px",
   },
+  customerPortalContainer: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    maxWidth: "100%",
+  }
 }));
 
 const CustomerPortal = () => {
   const classes = useStyles();
 
   return (
-    <Grid>
+    <Grid className={classes.customerPortalContainer}>
       <Nav type="public" />
       <h1 className={classes.title}>KIMCHI&KPOP</h1>
       <InfoCarousel />

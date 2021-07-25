@@ -6,12 +6,13 @@ const useStyles = makeStyles(theme => ({
   infoMobile2: {
     display: "flex",
     flexDirection: "column",
-    alignItems: "center",
+    // alignItems: "center",
     justifyContent: "space-between",
-    margin: "auto",
+    // margin: "auto",
     marginTop: "-40px",
-    height: "80vh",
+    height: "70vh",
     padding: "0px 10px 10px 10px",
+    width: "100%",
   },
   blurb: {
     fontSize: "1.5em",
@@ -33,7 +34,7 @@ const InfoMobile1 = () => {
         KIMCHI & KPOP WAS BORN IN 2019 WITH A MISSION TO BRING AN AUTHENTIC
         KOREAN ATMOSPHERE AND DINING EXPERIENCE TO MELBOURNE’S STREETS
       </p>
-      <div className={classes.location}>gmaps embed</div>
+      {/* <div className={classes.location}>gmaps embed</div> */}
       <h1>SEE THE MENU ➞</h1>
     </Grid>
   );

@@ -92,6 +92,15 @@ export default function ButtonAppBar(props) {
                 variant="outlined"
                 color="inherit"
                 className={clsx(classes.button, classes.desktopButton)}
+                component={Link}
+                to="/"
+              >
+                ABOUT
+              </Button>
+              <Button
+                variant="outlined"
+                color="inherit"
+                className={clsx(classes.button, classes.desktopButton)}
               >
                 MENU
               </Button>
