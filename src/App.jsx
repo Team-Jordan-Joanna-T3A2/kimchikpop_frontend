@@ -35,6 +35,7 @@ function App() {
           <Route exact path="/" component={CustomerPortal} />
           <Route exact path="/staff" component={StaffPortal} />
           <Route exact path="/staff/signup" component={StaffSignUp} />
+          <Route exact path="/book" component={CustomerBook} />
           <Route component={NotFound}/>
         </Switch>
       </Router>
