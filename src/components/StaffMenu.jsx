@@ -2,6 +2,7 @@ import React from "react";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -17,8 +18,14 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+
 const StaffMenu = () => {
   const classes = useStyles();
+  const history = useHistory();
+
+  const gotoSignUp = () => {
+    history.push('/staff/signup');
+  }
   return (
     <div>
       <h1 className={classes.title}>KIMCHI&KPOP</h1>
@@ -28,6 +35,7 @@ const StaffMenu = () => {
           className={classes.menuButton}
           variant="contained"
           color="primary"
+          onClick={gotoSignUp}
         >
           CREATE A NEW STAFF ACCOUNT
         </Button>

@@ -9,6 +9,7 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import Grid from "@material-ui/core/Grid";
 import clsx from "clsx";
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -64,6 +65,11 @@ const useStyles = makeStyles(theme => ({
 
 export default function ButtonAppBar(props) {
   const classes = useStyles();
+  let history = useHistory();
+
+  const gotoStaffMenu = () => {
+    history.push('/staff')
+  }
 
   if (props.type === "public") {
     return (
@@ -83,12 +89,11 @@ export default function ButtonAppBar(props) {
                 variant="outlined"
                 color="inherit"
                 className={clsx(classes.button, classes.desktopButton)}
-                component={Link}
-                to="/"
+                // onClick={history.push('/')}
               >
                 HOME
               </Button>
-              <Button
+              {/* <Button
                 variant="outlined"
                 color="inherit"
                 className={clsx(classes.button, classes.desktopButton)}
@@ -103,12 +108,13 @@ export default function ButtonAppBar(props) {
                 className={clsx(classes.button, classes.desktopButton)}
               >
                 MENU
-              </Button>
+              </Button> */}
               <Grid className={classes.bookContainer}>
                 <Button
                   variant="outlined"
                   color="inherit"
                   className={classes.button}
+                  // onClick={history.push('/book')}
                 >
                   BOOK NOW
                 </Button>
@@ -128,8 +134,7 @@ export default function ButtonAppBar(props) {
                 color="inherit"
                 variant="outlined"
                 className={classes.button}
-                component={Link}
-                to="/staff"
+                onClick={gotoStaffMenu}
               >
                 HOME
               </Button>
