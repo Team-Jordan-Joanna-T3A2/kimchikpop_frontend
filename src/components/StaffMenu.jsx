@@ -12,12 +12,17 @@ const useStyles = makeStyles(theme => ({
     marginTop: "10px",
     marginBottom: "10px",
   },
+  title: {
+    letterSpacing: "-2px",
+  },
 }));
 
 const StaffMenu = () => {
   const classes = useStyles();
   return (
     <div>
+      <h1 className={classes.title}>KIMCHI&KPOP</h1>
+      <h2>STAFF PORTAL</h2>
       <Grid className={classes.root}>
         <Button
           className={classes.menuButton}

@@ -1,26 +1,27 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 
 // Components
 import Nav from "../components/Nav";
 import Login from "../components/Login";
 import StaffMenu from "../components/StaffMenu";
-
-const useStyles = makeStyles(theme => ({
-  title: {
-    letterSpacing: "-2px",
-  },
-}));
+import TodayBookings from "../components/TodayBookings";
+import AllBookings from "../components/AllBookings";
+import SignUpForm from "../components/SignUpForm";
+import NotFound from "../pages/NotFound";
 
 const StaffPortal = () => {
-  const classes = useStyles();
   return (
     <div>
       <Nav type="staff" />
-      <h1 className={classes.title}>KIMCHI&KPOP</h1>
-      <h2>STAFF PORTAL</h2>
-        <StaffMenu/>
-      {/* <Login /> */}
+      <Switch>
+        <Route exact path="/staff" component={StaffMenu} />
+        <Route path="/staff/today" component={TodayBookings} />
+        <Route path="/staff/all" component={AllBookings} />
+        <Route path="/staff/addstaff" component={SignUpForm} />
+        <Route path="/staff/login" component={Login} />
+        <Route component={NotFound} />
+      </Switch>
     </div>
   );
 };
