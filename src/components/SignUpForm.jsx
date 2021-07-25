@@ -21,8 +21,7 @@ const SignUpForm = () => {
 
       Create a New Account
       <Grid className={classes.formField}>
-
-
+        <form className="signup-form">
         <label className={classes.label}>Username:</label>
         <input type="username" />
 
@@ -34,9 +33,10 @@ const SignUpForm = () => {
 
         <label className={classes.label}>User Type:</label>
         <input type="user type" />
+        </form>
 
 
-      <Button variant="contained" color="primary" className={classes.submit}>SUBMIT</Button>
+      <Button variant="contained" color="primary" id="submit" className={classes.submit}>SUBMIT</Button>
 
       </Grid>
 
