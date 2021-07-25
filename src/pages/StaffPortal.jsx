@@ -20,7 +20,7 @@ const StaffPortal = () => {
         <Route path="/staff/today" component={TodayBookings} />
         <Route path="/staff/all" component={AllBookings} />
         <Route path="/staff/addstaff" component={SignUpForm} />
-        <Route exact path="/staff/manage" component={ManageStaff} />
+        <Route path="/staff/managestaff" component={ManageStaff} />
         <Route path="/staff/login" component={Login} />
         <Route component={NotFound} />
       </Switch>

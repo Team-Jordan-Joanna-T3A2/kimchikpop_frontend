@@ -68,8 +68,8 @@ export default function ButtonAppBar(props) {
   let history = useHistory();
 
   const gotoStaffMenu = () => {
-    history.push('/staff')
-  }
+    history.push("/staff");
+  };
 
   if (props.type === "public") {
     return (
@@ -147,6 +147,14 @@ export default function ButtonAppBar(props) {
               </Button>
             </Grid>
           </Toolbar>
+        </AppBar>
+      </div>
+    );
+  } else {
+    return (
+      <div className={classes.root}>
+        <AppBar className={classes.appBar}>
+          <Toolbar>computer sad :(</Toolbar>
         </AppBar>
       </div>
     );

@@ -23,9 +23,22 @@ const StaffMenu = () => {
   const classes = useStyles();
   const history = useHistory();
 
-  const gotoSignUp = () => {
+  const signUp = () => {
     history.push('/staff/signup');
   }
+
+  const todaysBookings = () => {
+    history.push('/staff/today');
+  }
+
+  const manageBookings = () => {
+    history.push('/staff/all');
+  }
+
+  const manageStaff = () => {
+    history.push('/staff/managestaff');
+  }
+
   return (
     <div>
       <h1 className={classes.title}>KIMCHI&KPOP</h1>
@@ -35,7 +48,7 @@ const StaffMenu = () => {
           className={classes.menuButton}
           variant="contained"
           color="primary"
-          onClick={gotoSignUp}
+          onClick={signUp}
         >
           CREATE A NEW STAFF ACCOUNT
         </Button>
@@ -44,6 +57,7 @@ const StaffMenu = () => {
           className={classes.menuButton}
           variant="contained"
           color="primary"
+          onClick={todaysBookings}
         >
           TODAY'S BOOKINGS
         </Button>
@@ -51,6 +65,7 @@ const StaffMenu = () => {
           className={classes.menuButton}
           variant="contained"
           color="primary"
+          onClick={manageBookings}
         >
           MANAGE ALL BOOKINGS
         </Button>
@@ -58,6 +73,7 @@ const StaffMenu = () => {
           className={classes.menuButton}
           variant="contained"
           color="primary"
+          onClick={manageStaff}
         >
           MANAGE STAFF
         </Button>
