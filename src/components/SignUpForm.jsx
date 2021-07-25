@@ -35,11 +35,11 @@ const SignUpForm = () => {
     })
   }
 
-  const submitForm = () => {
-    axios.post(/* url */, signUpForm)
-    .then(console.log("Successfully sent POST request"))
-    .catch(err => console.log(err));
-  }
+  // const submitForm = () => {
+  //   axios.post(/* url */, signUpForm)
+  //   .then(console.log("Successfully sent POST request"))
+  //   .catch(err => console.log(err));
+  // }
 
 
   const {username, password, password_confirmation, user_type} = signUpForm.user
@@ -59,13 +59,10 @@ const SignUpForm = () => {
         <label className={classes.label}>Confirm Password:</label>
         <input type="password" value ={password_confirmation} onChange={changeInput} name='password_confirmation' />
 
-        <label className={classes.label}>User Type:</label>
-        <input type="text" value ={user_type} onChange={changeInput} name='user_type'/>
-
         {/* <input type="submit" value="Add New Staff" /> */}
         </form>
 
-        <Button variant="contained" color="primary" id="submit" className={classes.submit} onClick={submitForm}>ADD NEW STAFF</Button>
+        <Button variant="contained" color="primary" id="submit" className={classes.submit} >ADD NEW STAFF</Button>
 
 
       </Grid>
