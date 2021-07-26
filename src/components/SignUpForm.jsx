@@ -3,6 +3,7 @@ import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import { useHistory } from "react-router-dom";
+import axios from "axios";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -13,9 +14,19 @@ const useStyles = makeStyles(theme => ({
     marginTop: "10px",
     marginBottom: "10px",
   },
+  match: {
+    display: "none"
+  },
+  noMatch: {
+    display: "initial",
+    color: "red"
+  },
 }));
 
 const SignUpForm = () => {
+  let history = useHistory();
+
+  const [passwordsMatch, setPasswordsMatch] = useState(false);
   const [signUpForm, setSignUpForm] = useState({
     user: {
       username: "",
@@ -37,19 +48,32 @@ const SignUpForm = () => {
   };
 
   const submitForm = () => {
-  const data = JSON.stringify(signUpForm)
-  const config = {headers: {
-    Authorization: "Bearer " + localStorage.getItem("jwt")
-  },
-}
+    if(passwordsMatch === false) return;
 
-  axios.post(url, signUpForm, config)
-  .then(() => history.push('staff/addstaff/success'))
-  .catch((errors) => {
-    console.log(errors);
-    history.push('staff/addstaff/failure');
-  });
-}
+    console.log("Starting POST");
+    const data = JSON.stringify(signUpForm);
+    const config = {
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("jwt"),
+      },
+    };
+
+    axios
+      .post("http://localhost:5000/api/users/addstaff", signUpForm, config)
+      .then(() => history.push("staff/addstaff/success"))
+      .catch(errors => {
+        console.log(errors);
+        history.push("staff/addstaff/failure");
+      });
+  };
+
+  const checkPasswordConfirmation = e => {
+    if (e.target.value === signUpForm.user.password) {
+      setPasswordsMatch(true);
+    } else {
+      setPasswordsMatch(false);
+    }
+  };
 
   const { username, password, password_confirmation } = signUpForm.user;
 
@@ -78,16 +102,20 @@ const SignUpForm = () => {
           <input
             type="password"
             value={password_confirmation}
-            onChange={changeInput}
+            onChange={checkPasswordConfirmation}
             name="password_confirmation"
           />
         </form>
+        <p className={passwordsMatch ? classes.match : classes.noMatch}>
+          Passwords do not match
+        </p>
 
         <Button
           variant="contained"
           color="primary"
           id="submit"
           className={classes.submit}
+          onClick={submitForm}
         >
           ADD NEW STAFF
         </Button>

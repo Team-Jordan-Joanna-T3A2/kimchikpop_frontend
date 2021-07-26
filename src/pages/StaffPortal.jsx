@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 // Components
 import Nav from "../components/Nav";
@@ -12,6 +12,17 @@ import ManageStaff from "../components/ManageStaff";
 import NotFoundStaff from "../pages/NotFound";
 
 const StaffPortal = () => {
+  if (!localStorage.getItem("jwt"))
+    return (
+      <div>
+        <Nav type="staff" />
+        <Switch>
+          <Route path="/" component={Login} />
+          <Route component={NotFoundStaff} />
+        </Switch>
+      </div>
+    );
+
   return (
     <div>
       <Nav type="staff" />

@@ -6,7 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 
 // pages
-import InfoMobile1 from "../components/info/InfoMobile1";
+import HomeInfo from "../components/info/HomeInfo";
 import About from "../components/info/About";
 import Menu from "../components/info/Menu";
 
@@ -32,7 +32,7 @@ const CustomerPortal = () => {
       {/* <InfoCarousel /> */}
       <Router>
         <Switch>
-          <Route exact path="/" component={InfoMobile1}/>
+          <Route exact path="/" component={HomeInfo}/>
           <Route exact path="/about" component={About}/>
           <Route exact path="/menu" component={Menu}/>
         </Switch>

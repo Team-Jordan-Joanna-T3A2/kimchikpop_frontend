@@ -61,6 +61,9 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     justifyContent: "flex-end",
   },
+  hidden: {
+    display: "none",
+  }
 }));
 
 export default function ButtonAppBar(props) {
@@ -93,7 +96,7 @@ export default function ButtonAppBar(props) {
                 variant="outlined"
                 color="inherit"
                 className={clsx(classes.button, classes.desktopButton)}
-                onClick={() => history.push('/about')}
+                onClick={() => history.push("/about")}
               >
                 ABOUT
               </Button>
@@ -101,9 +104,17 @@ export default function ButtonAppBar(props) {
                 variant="outlined"
                 color="inherit"
                 className={clsx(classes.button, classes.desktopButton)}
-                onClick={() => history.push('/menu')}
+                onClick={() => history.push("/menu")}
               >
                 MENU
+              </Button>
+              <Button
+                variant="outlined"
+                color="inherit"
+                className={clsx(classes.button, classes.desktopButton)}
+                onClick={() => history.push("/menu")}
+              >
+                GALLERY
               </Button>
               <Grid className={classes.bookContainer}>
                 <Button
@@ -137,7 +148,11 @@ export default function ButtonAppBar(props) {
               <Button
                 color="inherit"
                 variant="outlined"
-                className={classes.button}
+                className={
+                  localStorage.getItem("jwt")
+                    ? classes.button
+                    : clsx(classes.button, classes.hidden)
+                }
               >
                 LOG OUT
               </Button>
