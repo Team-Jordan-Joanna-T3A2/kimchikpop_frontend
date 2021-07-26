@@ -51,6 +51,7 @@ const Login = () => {
 
   return (
     <Grid className={classes.formField}>
+    <h1>LOG IN</h1>
       <label className={classes.label}>USERNAME</label>
       <input type="text" name="username" onChange={handleChange} />
       <label className={classes.label}>PASSWORD</label>

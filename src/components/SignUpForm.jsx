@@ -110,6 +110,7 @@ const SignUpForm = () => {
           Passwords do not match
         </p>
 
+      </Grid>
         <Button
           variant="contained"
           color="primary"
@@ -119,7 +120,6 @@ const SignUpForm = () => {
         >
           ADD NEW STAFF
         </Button>
-      </Grid>
     </div>
   );
 };

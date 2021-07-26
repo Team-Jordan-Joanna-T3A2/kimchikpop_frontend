@@ -69,6 +69,11 @@ const useStyles = makeStyles(theme => ({
 export default function ButtonAppBar(props) {
   const classes = useStyles();
   let history = useHistory();
+  
+  const logOut = () => {
+    localStorage.removeItem("jwt");
+    history.push('/staff');
+  }
 
   if (props.type === "public") {
     return (
@@ -153,6 +158,7 @@ export default function ButtonAppBar(props) {
                     ? classes.button
                     : clsx(classes.button, classes.hidden)
                 }
+                onClick={logOut}
               >
                 LOG OUT
               </Button>

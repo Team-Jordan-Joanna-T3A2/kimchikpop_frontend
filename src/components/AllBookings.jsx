@@ -38,8 +38,14 @@ const AllBookings = () => {
   const [bookings, setBookings] = useState(null);
 
   useEffect(() => {
+    const config = {
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("jwt"),
+      },
+    };
+
     axios
-      .get("http://localhost:5000/api/reservations")
+      .get("http://localhost:5000/api/reservations", config)
       .then(res => setBookings(res.data))
       .catch(err => console.log(err));
 
