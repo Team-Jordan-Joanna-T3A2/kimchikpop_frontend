@@ -85,7 +85,7 @@ export default function ButtonAppBar(props) {
                 variant="outlined"
                 color="inherit"
                 className={clsx(classes.button, classes.desktopButton)}
-                onClick={() => history.push('/')}
+                onClick={() => history.push("/")}
               >
                 HOME
               </Button>
@@ -110,7 +110,7 @@ export default function ButtonAppBar(props) {
                   variant="outlined"
                   color="inherit"
                   className={classes.button}
-                  onClick={() => history.push('/book')}
+                  onClick={() => history.push("/book")}
                 >
                   BOOK NOW
                 </Button>
