@@ -16,7 +16,7 @@ const CustomerBook = () => {
   return (
     <div>
       <h1 className={classes.title}>KIMCHI&KPOP</h1>
-      <h2>BOOK NOW</h2>
+      <h2>MAKE A BOOKING</h2>
       <Book />
     </div>
   );
