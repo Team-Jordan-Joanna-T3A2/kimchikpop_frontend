@@ -26,7 +26,8 @@ const InfoMobile1 = () => {
     <Grid className={classes.infoMobile1}>
       <Grid>
         <h4>123 FAKE STREET, FAKEVILLE 1234 MELBOURNE</h4>
-        <h4 className={classes.infoHeader}>TUESDAY - SUNDAY 11AM - 11PM</h4>
+        <h4>CONTACT NUMBER: 0412345678</h4>
+        <h4 className={classes.infoHeader}>TUESDAY - SUNDAY 11:30AM - 9:30PM</h4>
       </Grid>
       <Grid>
         <h1>COME FOR THE KIMCHI,</h1>

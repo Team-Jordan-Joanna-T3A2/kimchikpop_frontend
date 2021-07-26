@@ -3,7 +3,7 @@ import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
-  infoMobile2: {
+  about: {
     display: "flex",
     flexDirection: "column",
     // alignItems: "center",
@@ -29,7 +29,7 @@ const InfoMobile1 = () => {
   const classes = useStyles();
 
   return (
-    <Grid className={classes.infoMobile2}>
+    <Grid className={classes.about}>
       <p className={classes.blurb}>
         KIMCHI & KPOP WAS BORN IN 2019 WITH A MISSION TO BRING AN AUTHENTIC
         KOREAN ATMOSPHERE AND DINING EXPERIENCE TO MELBOURNE’S STREETS

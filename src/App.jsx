@@ -12,6 +12,9 @@ import CustomerPortal from './pages/CustomerPortal';
 import CustomerBook from './pages/CustomerBook';
 import StaffPortal from './pages/StaffPortal';
 import NotFound from './pages/NotFound';
+import Menu from './components/info/Menu';
+import About from './components/info/About';
+import { MenuList } from '@material-ui/core';
 
 const theme = createTheme({
   palette: {
@@ -19,7 +22,7 @@ const theme = createTheme({
       main: '#000000',
     },
     secondary: {
-      main: '#FFFFFF',
+      main: '#000000',
     }
   },
   buttonWidth: "100px",
@@ -31,9 +34,11 @@ function App() {
     <ThemeProvider theme={theme}>
       <Router>
         <Switch>
-          <Route exact path="/" component={CustomerPortal} />
           <Route path="/staff" component={StaffPortal} />
           <Route path="/book" component={CustomerBook} />
+          <Route path="/menu" component={Menu} />
+          <Route path="/about" component={About} />
+          <Route exact path="/" component={CustomerPortal} />
           <Route component={NotFound}/>
         </Switch>
       </Router>

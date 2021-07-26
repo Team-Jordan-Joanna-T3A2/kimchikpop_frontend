@@ -12,14 +12,7 @@ const useStyles = makeStyles(theme => ({
   makeBooking: {
     marginTop: "-30px"
   },
-  bookingForm: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-  },
-  'bookingForm > label': {
-    margin: "50px 0px"
-  }
+  
 }));
 
 

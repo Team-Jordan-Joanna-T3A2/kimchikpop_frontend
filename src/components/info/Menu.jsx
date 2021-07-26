@@ -2,9 +2,14 @@ import React from "react";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
+import Nav from "../Nav";
+
+//images
+import MenuImage1 from "../../res/nathan-dumlao--CwlvovOfb0-unsplash.jpg";
+import MenuImage2 from "../../res/nathan-dumlao-5-tl8DLvYA4-unsplash.jpg";
 
 const useStyles = makeStyles(theme => ({
-  infoMobile3: {
+  menu: {
     display: "flex",
     flexDirection: "column",
     // alignItems: "center",
@@ -17,15 +22,18 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const InfoMobile1 = () => {
+const Menu = () => {
   const classes = useStyles();
 
   return (
-    <Grid className={classes.infoMobile3}>
+    <Grid className={classes.menu}>
+      <Nav type="public" />
       <h1>MENU</h1>
-      <Button>DOWNLOAD MENU</Button>
+      <img alt="menu image1" src={MenuImage1}/>
+      <img alt="menu image2" src={MenuImage2}/>
+      <Button variant="contained" color="primary">DOWNLOAD MENU</Button>
     </Grid>
   );
 };
 
-export default InfoMobile1;
+export default Menu;

@@ -7,6 +7,12 @@ import Button from "@material-ui/core/Button";
 import { Radio, RadioGroup, FormControlLabel, FormLabel, FormControl } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
+  bookingContainer: {
+    display: "flex",
+    flexDirection: "column",
+    textAlign: "center",
+    alignItems: "center"
+  },
   formField: {
     display: "flex",    
     flexDirection: "column",
@@ -37,13 +43,30 @@ const useStyles = makeStyles((theme) => ({
 const Book = () => {
   const classes = useStyles();
   const [value, onChange] = useState(new Date());
-  const [time, setTime] = useState('11:30am')
+  const [time, setTime] = useState('11:30am');
+  const [details, setDetails] = useState({
+    reservation: {
+      pax: "",
+      first_name: "",
+      last_name: "",
+      email: "",
+      phone_number: ""
+    }
+  });
+
+  const changeInput = e => {
+    setDetails({
+     reservation: {
+        ...details,
+        [e.target.name]: e.target.value,
+    }});
+  };
 
   return (
     <div>
       <Nav type="public" />
-      <Grid className={classes.formField}>
-        <form className={classes.bookingFo}>
+      <Grid className={classes.bookingContainer}>
+        <form className={classes.formField}>
           <label>DATE :</label>
           <DatePicker
             calendarAriaLabel="Toggle calendar"
@@ -57,8 +80,8 @@ const Book = () => {
             format="dd-MM-yyyy"
           />
 
+          <label>TIME :</label>
           <FormControl className={classes.formField}>
-          <FormLabel>TIME :</FormLabel>
           <RadioGroup value={time} onChange={(e) => setTime(e.target.value)}>
               <FormControlLabel value="11:30am" control={<Radio />} label="11:30am" />
               <FormControlLabel value="1:30pm" control={<Radio />} label="1:30pm" />
@@ -68,21 +91,19 @@ const Book = () => {
           </RadioGroup>
           </FormControl>
 
-          <label>GUESTS :</label>
-          <input type="number" min="1" max="5"></input>
-
-          <h2>YOUR DETAILS</h2>
-          <label>FIRST NAME :</label>
-          <input type="text" />
-
-          <label>LAST NAME :</label>
-          <input type="text" />
-
-          <label>EMAIL :</label>
-          <input type="email" />
-
-          <label>PHONE NUMBER :</label>
-          <input type="text" />
+          <Grid className={classes.formField}>
+            <label>GUESTS :</label>
+            <input name="pax" type="number" min="1" max="5" onChange={changeInput}></input>
+            <h2>YOUR DETAILS</h2>
+            <label>FIRST NAME :</label>
+            <input name="first_name" type="text" />
+            <label>LAST NAME :</label>
+            <input name="last_name" type="text" />
+            <label>EMAIL :</label>
+            <input name="email" type="email" />
+            <label>PHONE NUMBER :</label>
+            <input name="phone_number" type="text" />
+          </Grid>
 
           <Button
             variant="contained"
