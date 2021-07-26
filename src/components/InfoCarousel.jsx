@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import SwipeableViews from "react-swipeable-views";
 
 // Info components
-import InfoMobile1 from "./info/InfoMobile1";
+import HomeInfo from "./info/HomeInfo";
 import About from "./info/About";
 import Menu from "./info/Menu";
 
@@ -31,7 +31,7 @@ const InfoCarousel = () => {
     <Grid>
       <SwipeableViews enableMouseEvents>
         <div style={Object.assign({}, styles.slide, styles.slide1)}>
-          <InfoMobile1 />
+          <HomeInfo />
         </div>
         <div style={Object.assign({}, styles.slide, styles.slide2)}>
           <About />

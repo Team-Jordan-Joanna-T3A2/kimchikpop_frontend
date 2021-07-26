@@ -3,7 +3,7 @@ import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
-  infoMobile1: {
+  HomeInfo: {
     display: "flex",
     flexDirection: "column",
     // alignItems: 'center',
@@ -19,11 +19,11 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const InfoMobile1 = () => {
+const HomeInfo = () => {
   const classes = useStyles();
 
   return (
-    <Grid className={classes.infoMobile1}>
+    <Grid className={classes.HomeInfo}>
       <Grid>
         <h4>123 FAKE STREET, FAKEVILLE 1234 MELBOURNE</h4>
         <h4>CONTACT NUMBER: 0412345678</h4>
@@ -38,4 +38,4 @@ const InfoMobile1 = () => {
   );
 };
 
-export default InfoMobile1;
+export default HomeInfo;

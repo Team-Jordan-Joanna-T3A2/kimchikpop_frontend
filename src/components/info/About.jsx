@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const InfoMobile1 = () => {
+const HomeInfo = () => {
   const classes = useStyles();
 
   return (
@@ -40,4 +40,4 @@ const InfoMobile1 = () => {
   );
 };
 
-export default InfoMobile1;
+export default HomeInfo;

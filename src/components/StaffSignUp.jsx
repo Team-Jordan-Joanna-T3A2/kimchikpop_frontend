@@ -2,9 +2,9 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 // Components
-import Nav from "../components/Nav";
+import Nav from "./Nav";
 
-import SignUpForm from "../components/SignUpForm";
+import SignUpForm from "./SignUpForm";
 
 const useStyles = makeStyles(theme => ({
   title: {
