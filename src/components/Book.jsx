@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Book = () => {
   const classes = useStyles();
-  const [value, onChange] = useState(new Date());
+  const [date, setDate] = useState(new Date());
   const [time, setTime] = useState('11:30am');
   const [details, setDetails] = useState({
     reservation: {
@@ -54,17 +54,8 @@ const Book = () => {
       email: "",
       phone_number: "",
       confirmed: true
-
     }
   });
-
-  const changeTime = e =>{
-    console.log(e.target.value);
-    const bookingTime = details.reservation.time.split(' ')
-    bookingTime[1] = e.target.value
-    console.log(bookingTime)
-
-  }
 
 
   const changeInput = e => {
@@ -76,9 +67,14 @@ const Book = () => {
   };
 
   const submitBooking = async e =>{
+    const body = details
+
+    body.reservation.time = date.toDateString() + " " + body.reservation.time;
+    console.log(body);
+
     try {
       e.preventDefault()
-      const saveData = await axios.post('http://localhost:5000/api/reservations', details, 
+      const saveData = await axios.post('http://localhost:5000/api/reservations', body, 
       {
         headers:{'Content-Type': 'application/json'}
       })
@@ -87,8 +83,6 @@ const Book = () => {
     catch(exception){
       console.log(exception.response)
     }
-
-
   }
 
   return (
@@ -103,8 +97,8 @@ const Book = () => {
             dayAriaLabel="Day"
             monthAriaLabel="Month"
             nativeInputAriaLabel="Date"
-            onChange={onChange}
-            value={value}
+            onChange={setDate}
+            value={date}
             yearAriaLabel="Year"
             format="dd-MM-yyyy"
           />

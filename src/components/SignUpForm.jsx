@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -35,11 +36,20 @@ const SignUpForm = () => {
     });
   };
 
-  // const submitForm = () => {
-  //   axios.post(/* url */, signUpForm)
-  //   .then(console.log("Successfully sent POST request"))
-  //   .catch(err => console.log(err));
-  // }
+  const submitForm = () => {
+  const data = JSON.stringify(signUpForm)
+  const config = {headers: {
+    Authorization: "Bearer " + localStorage.getItem("jwt")
+  },
+}
+
+  axios.post(url, signUpForm, config)
+  .then(() => history.push('staff/addstaff/success'))
+  .catch((errors) => {
+    console.log(errors);
+    history.push('staff/addstaff/failure');
+  });
+}
 
   const { username, password, password_confirmation } = signUpForm.user;
 
