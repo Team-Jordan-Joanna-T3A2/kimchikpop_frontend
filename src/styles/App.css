@@ -55,13 +55,3 @@
   margin: 10px 0px;
 }
 
-.booking-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-}
-
-.booking-form label {
-  margin: 10px 0px;
-}

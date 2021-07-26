@@ -8,7 +8,7 @@ import { Radio, RadioGroup, FormControlLabel, FormLabel, FormControl } from "@ma
 
 const useStyles = makeStyles((theme) => ({
   formField: {
-    display: "flex",
+    display: "flex",    
     flexDirection: "column",
     textAlign: "left",
     alignItems: "center",
@@ -21,7 +21,17 @@ const useStyles = makeStyles((theme) => ({
     margin: "20px",
     width: theme.buttonWidth,
   },
+  bookingForm: {
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  "& > label": {
+    margin: "50px 0px"
+  }
+}
 }));
+
+
 
 const Book = () => {
   const classes = useStyles();
@@ -32,7 +42,7 @@ const Book = () => {
     <div>
       <Nav type="public" />
       <Grid className={classes.formField}>
-        <form className="booking-form">
+        <form className={classes.bookingFo}>
           <label>DATE :</label>
           <DatePicker
             calendarAriaLabel="Toggle calendar"
