@@ -12,14 +12,14 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     textAlign: "center",
-    alignItems: "center"
+    alignItems: "center",
+    justifyContent: "center",
   },
   formField: {
     display: "flex",    
     flexDirection: "column",
     textAlign: "left",
     alignItems: "center",
-    justifyContent: "center"
   },
   label: {
     color: "gray",
@@ -59,6 +59,7 @@ const Book = () => {
   });
 
   const changeTime = e =>{
+    console.log(e.target.value);
     const bookingTime = details.reservation.time.split(' ')
     bookingTime[1] = e.target.value
     console.log(bookingTime)
