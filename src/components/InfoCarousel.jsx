@@ -5,8 +5,8 @@ import SwipeableViews from "react-swipeable-views";
 
 // Info components
 import InfoMobile1 from "./info/InfoMobile1";
-import InfoMobile2 from "./info/InfoMobile2";
-import InfoMobile3 from "./info/InfoMobile3";
+import About from "./info/About";
+import Menu from "./info/Menu";
 
 const styles = {
   slide: {
@@ -34,10 +34,10 @@ const InfoCarousel = () => {
           <InfoMobile1 />
         </div>
         <div style={Object.assign({}, styles.slide, styles.slide2)}>
-          <InfoMobile2 />
+          <About />
         </div>
         <div style={Object.assign({}, styles.slide, styles.slide3)}>
-          <InfoMobile3 />
+          <Menu />
         </div>
       </SwipeableViews>
     </Grid>

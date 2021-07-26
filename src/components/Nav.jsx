@@ -89,12 +89,11 @@ export default function ButtonAppBar(props) {
               >
                 HOME
               </Button>
-              {/* <Button
+              <Button
                 variant="outlined"
                 color="inherit"
                 className={clsx(classes.button, classes.desktopButton)}
-                component={Link}
-                to="/"
+                onClick={() => history.push('/about')}
               >
                 ABOUT
               </Button>
@@ -102,9 +101,10 @@ export default function ButtonAppBar(props) {
                 variant="outlined"
                 color="inherit"
                 className={clsx(classes.button, classes.desktopButton)}
+                onClick={() => history.push('/menu')}
               >
                 MENU
-              </Button> */}
+              </Button>
               <Grid className={classes.bookContainer}>
                 <Button
                   variant="outlined"

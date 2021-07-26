@@ -1,8 +1,14 @@
 import React from "react";
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Nav from "../components/Nav";
 import InfoCarousel from "../components/InfoCarousel";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
+
+// pages
+import InfoMobile1 from "../components/info/InfoMobile1";
+import About from "../components/info/About";
+import Menu from "../components/info/Menu";
 
 const useStyles = makeStyles(theme => ({
   title: {
@@ -23,7 +29,14 @@ const CustomerPortal = () => {
     <Grid className={classes.customerPortalContainer}>
       <Nav type="public" />
       <h1 className={classes.title}>KIMCHI&KPOP</h1>
-      <InfoCarousel />
+      {/* <InfoCarousel /> */}
+      <Router>
+        <Switch>
+          <Route exact path="/" component={InfoMobile1}/>
+          <Route exact path="/about" component={About}/>
+          <Route exact path="/menu" component={Menu}/>
+        </Switch>
+      </Router>
     </Grid>
   );
 };
