@@ -12,6 +12,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     textAlign: "left",
     alignItems: "center",
+    justifyContent: "center"
   },
   label: {
     color: "gray",
