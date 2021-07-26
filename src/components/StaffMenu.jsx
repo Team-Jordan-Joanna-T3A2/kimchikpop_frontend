@@ -18,41 +18,31 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-
 const StaffMenu = () => {
   const classes = useStyles();
   const history = useHistory();
 
   const signUp = () => {
-    history.push('/staff/signup');
-  }
+    history.push("/staff/addstaff");
+  };
 
   const todaysBookings = () => {
-    history.push('/staff/today');
-  }
+    history.push("/staff/today");
+  };
 
   const manageBookings = () => {
-    history.push('/staff/all');
-  }
+    history.push("/staff/all");
+  };
 
   const manageStaff = () => {
-    history.push('/staff/managestaff');
-  }
+    history.push("/staff/managestaff");
+  };
 
   return (
     <div>
       <h1 className={classes.title}>KIMCHI&KPOP</h1>
       <h2>STAFF PORTAL</h2>
       <Grid className={classes.root}>
-        <Button
-          className={classes.menuButton}
-          variant="contained"
-          color="primary"
-          onClick={signUp}
-        >
-          CREATE A NEW STAFF ACCOUNT
-        </Button>
-
         <Button
           className={classes.menuButton}
           variant="contained"
@@ -69,6 +59,16 @@ const StaffMenu = () => {
         >
           MANAGE ALL BOOKINGS
         </Button>
+
+        <Button
+          className={classes.menuButton}
+          variant="contained"
+          color="primary"
+          onClick={signUp}
+        >
+          CREATE A NEW STAFF ACCOUNT
+        </Button>
+
         <Button
           className={classes.menuButton}
           variant="contained"

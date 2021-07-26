@@ -7,9 +7,9 @@ import Login from "../components/Login";
 import StaffMenu from "../components/StaffMenu";
 import TodayBookings from "../components/TodayBookings";
 import AllBookings from "../components/AllBookings";
-import SignUpForm from "../components/SignUpForm";
+import StaffSignUp from "../components/StaffSignUp";
 import ManageStaff from "../components/ManageStaff";
-import NotFound from "../pages/NotFound";
+import NotFoundStaff from "../pages/NotFound";
 
 const StaffPortal = () => {
   return (
@@ -19,10 +19,10 @@ const StaffPortal = () => {
         <Route exact path="/staff" component={StaffMenu} />
         <Route path="/staff/today" component={TodayBookings} />
         <Route path="/staff/all" component={AllBookings} />
-        <Route path="/staff/addstaff" component={SignUpForm} />
+        <Route path="/staff/addstaff" component={StaffSignUp} />
         <Route path="/staff/managestaff" component={ManageStaff} />
         <Route path="/staff/login" component={Login} />
-        <Route component={NotFound} />
+        <Route component={NotFoundStaff} />
       </Switch>
     </div>
   );
