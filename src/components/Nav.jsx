@@ -71,6 +71,14 @@ export default function ButtonAppBar(props) {
     history.push("/staff");
   };
 
+  const gotoBook = () => {
+    history.push("/book");
+  }
+
+  const gotoHome = () => {
+    history.push("/");
+  }
+
   if (props.type === "public") {
     return (
       <div className={classes.root}>
@@ -89,7 +97,7 @@ export default function ButtonAppBar(props) {
                 variant="outlined"
                 color="inherit"
                 className={clsx(classes.button, classes.desktopButton)}
-                // onClick={history.push('/')}
+                onClick={gotoHome}
               >
                 HOME
               </Button>
@@ -114,7 +122,7 @@ export default function ButtonAppBar(props) {
                   variant="outlined"
                   color="inherit"
                   className={classes.button}
-                  // onClick={history.push('/book')}
+                  onClick={gotoBook}
                 >
                   BOOK NOW
                 </Button>
