@@ -5,6 +5,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 
+// Components
+import AddStaffSuccess from "./AddStaffSuccess"
+
 const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
@@ -35,6 +38,8 @@ const useStyles = makeStyles(theme => ({
 const SignUpForm = () => {
   let history = useHistory();
 
+  const [signUpSent, setSignUpSent] = useState(false);
+  const [requestSuccess, setRequestSuccess] = useState(false);
   const [formIsValid, setFormIsValid] = useState(false);
   const [passwordsMatch, setPasswordsMatch] = useState(false);
   const [signUpForm, setSignUpForm] = useState({
@@ -71,11 +76,14 @@ const SignUpForm = () => {
 
     axios
       .post("http://localhost:5000/api/users/addstaff", signUpForm, config)
-      .then(() => history.push("staff/addstaff/success"))
+      .then(() =>
+        setRequestSuccess(true)
+      )
       .catch(errors => {
         console.log(errors);
-        history.push("staff/addstaff/failure");
       });
+
+      setSignUpSent(true);
   };
 
   const checkPasswordConfirmation = e => {
@@ -99,6 +107,7 @@ const SignUpForm = () => {
     }
   });
 
+if(!signUpSent) {
   return (
     <div>
       <Grid className={classes.root}>
@@ -130,22 +139,25 @@ const SignUpForm = () => {
             name="password_confirmation"
           />
         </form>
-      <Button
-        variant="contained"
-        color={formIsValid === true ? "primary" : ""}
-        disabled={formIsValid === true ? false : true}
-        id="submit"
-        className={classes.submit}
-        onClick={submitForm}
-      >
-        ADD NEW STAFF
-      </Button>
-      <p className={passwordsMatch ? classes.match : classes.noMatch}>
-        Passwords do not match
-      </p>
+        <Button
+          variant="contained"
+          color={formIsValid === true ? "primary" : ""}
+          disabled={formIsValid === true ? false : true}
+          id="submit"
+          className={classes.submit}
+          onClick={submitForm}
+        >
+          ADD NEW STAFF
+        </Button>
+        <p className={passwordsMatch ? classes.match : classes.noMatch}>
+          Passwords do not match
+        </p>
       </Grid>
     </div>
   );
+} else {
+  return(<AddStaffSuccess success={requestSuccess ? true : false}/>)
+}
 };
 
 export default SignUpForm;
