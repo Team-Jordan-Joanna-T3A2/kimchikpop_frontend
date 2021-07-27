@@ -83,7 +83,7 @@ const SignUpForm = () => {
     console.log(data, config);
 
     axios
-      .post("http://localhost:5000/api/users/addstaff", data, config)
+      .post("https://quiet-atoll-98684.herokuapp.com/api/users/addstaff", data, config)
       .then(() => setRequestSuccess(true))
       .catch(errors => console.log(errors));
 

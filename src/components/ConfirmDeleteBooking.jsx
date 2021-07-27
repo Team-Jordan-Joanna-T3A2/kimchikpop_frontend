@@ -54,7 +54,7 @@ const ConfirmDelete = props => {
     console.log("Starting DELETE");
 
     axios
-      .delete("http://localhost:5000/api/reservations/" + booking.id, config)
+      .delete("https://quiet-atoll-98684.herokuapp.com/api/reservations/" + booking.id, config)
       .then(response => {
         console.log(response);
         props.setShowConfirmDelete(false);

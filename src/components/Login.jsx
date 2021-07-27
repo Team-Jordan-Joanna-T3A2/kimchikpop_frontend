@@ -41,7 +41,7 @@ const Login = () => {
     console.log("Starting POST");
     // const data = JSON.stringify(signUpForm);
     axios
-      .post("http://localhost:5000/api/users/login", logIn)
+      .post("https://quiet-atoll-98684.herokuapp.com/api/users/login", logIn)
       .then(res => {
         console.log(res.data)
         localStorage.setItem("jwt", res.data.token);

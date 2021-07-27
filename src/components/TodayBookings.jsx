@@ -64,7 +64,7 @@ const TodayBookings = () => {
     };
 
     axios
-      .get("http://localhost:5000/api/reservations/today", config)
+      .get("https://quiet-atoll-98684.herokuapp.com/api/reservations/today", config)
       .then(res => {
         sortBookings(res.data);
       })
