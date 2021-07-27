@@ -50,7 +50,7 @@ The app is intended to be shipped with a default admin account added manually. T
 * Ability to recall bookings through the use of a reference number/code and edit or cancel the booking (to be added)
 
 *Utilized Mailgun to have a confirmation booking email sent to customers who made bookings. It works in sandbox mode as seen here:
-![Mailgun Sandbox delivered emails](docs/image.jpeg)
+![Mailgun Sandbox delivered emails](docs/mailgun.PNG)
 
 Fully functioning Mailgun would require financing from client.
 
