@@ -38,7 +38,7 @@ const HomeInfo = () => {
         KOREAN ATMOSPHERE AND DINING EXPERIENCE TO MELBOURNE’S STREETS
       </p>
       {/* <div className={classes.location}>gmaps embed</div> */}
-      <h1>SEE THE MENU ➞</h1>
+      
     </Grid>
   );
 };
