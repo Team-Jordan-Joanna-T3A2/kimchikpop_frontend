@@ -27,6 +27,8 @@ In discussion with the client, they decided that it would be easier to have a se
 
 ## Functionality / features
 
+The app is intended to be shipped with a default admin account added manually. The login details for this account will be provided to the customer. From there, the customer will be able to add staff accounts as needed.
+
 ### Main Web Portal
 
 * Lists Opening Hours
