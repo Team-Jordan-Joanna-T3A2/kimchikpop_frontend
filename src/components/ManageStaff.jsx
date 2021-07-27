@@ -35,14 +35,7 @@ const useStyles = makeStyles({
     width: "140px",
     margin: "5px",
   },
-  staffInfo: {
-    lineHeight: "0.3em",
-    textAlign: "left",
-    marginLeft: "5px",
-  },
-  staffType: {
-    textTransform: "capitalize",
-  },
+  
 });
 
 const ManageStaff = () => {
@@ -68,7 +61,7 @@ const ManageStaff = () => {
       .catch(err => console.log(err));
 
     console.log(allStaff);
-  }, []);
+  }, [showConfirmDelete]);
 
   const deleteStaff = staff => {
     setStaffToDelete(staff);
