@@ -68,6 +68,7 @@ const SignUpForm = () => {
   };
 
   const checkPasswordConfirmation = e => {
+    changeInput(e)
     if (e.target.value === signUpForm.user.password) {
       setPasswordsMatch(true);
     } else {
