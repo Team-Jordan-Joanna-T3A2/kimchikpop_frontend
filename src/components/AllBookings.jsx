@@ -52,7 +52,7 @@ const AllBookings = () => {
     };
 
     axios
-      .get("http://localhost:5000/api/reservations", config)
+      .get("https://quiet-atoll-98684.herokuapp.com/api/reservations", config)
       .then(res => setBookings(res.data))
       .catch(err => console.log(err));
 

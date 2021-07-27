@@ -54,7 +54,7 @@ const ManageStaff = () => {
     console.log("Starting GET");
 
     axios
-      .get("http://localhost:5000/api/users/", config)
+      .get("https://quiet-atoll-98684.herokuapp.com/api/users/", config)
       .then(res => {
         setAllStaff(res.data);
       })

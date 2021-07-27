@@ -74,7 +74,7 @@ const Book = () => {
 
     try {
       e.preventDefault()
-      const saveData = await axios.post('http://localhost:5000/api/reservations', body, 
+      const saveData = await axios.post('https://quiet-atoll-98684.herokuapp.com/api/reservations', body, 
       {
         headers:{'Content-Type': 'application/json'}
       })
