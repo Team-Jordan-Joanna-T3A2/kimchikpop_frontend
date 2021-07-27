@@ -58,7 +58,6 @@ const AllBookings = () => {
     return (
       <Grid>
         <h1>MANAGE BOOKINGS</h1>
-        <Grid />
         <Grid>
           <Grid className={classes.bookingsContainer}>
             {bookings.map((booking, key) => {
