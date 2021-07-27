@@ -6,7 +6,7 @@ import axios from "axios";
 import clsx from "clsx";
 
 // Components
-import ConfirmDelete from "./ConfirmDelete";
+import ConfirmDelete from "./ConfirmDeleteStaff";
 
 const useStyles = makeStyles({
   allStaffContainer: {

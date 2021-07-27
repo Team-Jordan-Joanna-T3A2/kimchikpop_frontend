@@ -18,7 +18,6 @@ import NotFound from "./pages/NotFound";
 import Menu from "./components/info/Menu";
 import About from "./components/info/About";
 import Gallery from "./components/info/Gallery";
-import { MenuList } from "@material-ui/core";
 
 const theme = createTheme({
   palette: {
@@ -27,6 +26,12 @@ const theme = createTheme({
     },
     secondary: {
       main: "#000000",
+    },
+    danger: {
+      main: "red"
+    },
+    confirm: {
+      main: "green"
     },
   },
   buttonWidth: "100px",

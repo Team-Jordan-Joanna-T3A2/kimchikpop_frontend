@@ -22,12 +22,12 @@ const useStyles = makeStyles(theme => ({
   blurb: {
     maxWidth: "300px",
   },
-  staffInfo: {
+  bookingInfo: {
     lineHeight: "0.3em",
     textAlign: "left",
     marginLeft: "5px",
   },
-  staffType: {
+  bookingType: {
     textTransform: "capitalize",
   },
   error: {
@@ -42,7 +42,7 @@ const ConfirmDelete = props => {
   const [showErrorMessage, setShowErrorMessage] = useState(false);
   const classes = useStyles();
 
-  const staff = props.staff;
+  const booking = props.booking;
 
   const confirm = () => {
     const config = {
@@ -54,7 +54,7 @@ const ConfirmDelete = props => {
     console.log("Starting DELETE");
 
     axios
-      .delete("http://localhost:5000/api/users/" + staff.id, config)
+      .delete("http://localhost:5000/api/reservations/" + booking.id, config)
       .then(response => {
         console.log(response);
         props.setShowConfirmDelete(false);
@@ -73,28 +73,22 @@ const ConfirmDelete = props => {
     <Grid>
       <Grid className={classes.confirmContainer}>
         <p className={classes.blurb}>
-          Are you sure you want to delete this staff account? This can't be
+          Are you sure you want to delete this booking? This can't be
           undone!
         </p>
         <Grid className={classes.confirmContainer}>
-          <p className={classes.staffInfo}>
-            ID: {staff.id}
+          <p className={classes.bookingInfo}>
+            ID: {booking.id}
           </p>
-          <p className={classes.staffInfo}>
-            Username: {staff.username}
+          <p className={classes.bookingInfo}>
+            Name: {booking.first_name} {booking.last_name}
           </p>
-          <p className={clsx(classes.staffInfo, classes.staffType)}>
-            User Type: {staff.user_type}
-          </p>
-          <p className={classes.staffInfo}>
-            Created on:{" "}
-            {new Date(
-              staff.created_at.split("").slice(0, 10).join("")
-            ).toDateString()}
+          <p className={classes.bookingInfo}>
+            Booking Time: {booking.time}
           </p>
         </Grid>
         <Grid className={classes.buttons}>
-          <Button variant="contained" colour="green" onClick={confirm}>
+          <Button variant="contained" colour="confirm" onClick={confirm}>
             CONFIRM
           </Button>
           <Button variant="contained" colour="danger" onClick={cancel}>
