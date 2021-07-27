@@ -1,10 +1,10 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
-import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardMedia from '@material-ui/core/CardMedia';
+import Button from "@material-ui/core/Button";
 import { useHistory } from 'react-router-dom';
 
 //images
@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
   HomeInfo: {
     display: "flex",
     flexDirection: "column",
-    // alignItems: 'center',
+    alignItems: 'center',
     justifyContent: "space-between",
     // margin: "auto",
     marginTop: "-40px",
@@ -26,6 +26,9 @@ const useStyles = makeStyles(theme => ({
   infoHeader: {
     marginTop: "-15px",
   },
+  button: {
+    width: "140px"
+  }
 }));
 
 const HomeInfo = () => {
@@ -52,7 +55,7 @@ const HomeInfo = () => {
         <h1>COME FOR THE KIMCHI,</h1>
         <h1>STAY FOR THE KPOP</h1>
       </Grid>
-      <Button variant="contained" color="primary" onClick={() => history.push('/about')}>ABOUT US</Button>
+      <Button className={classes.button} variant="contained" color="primary" onClick={() => history.push('/about')}>ABOUT US</Button>
       
     </Grid>
   );

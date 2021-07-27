@@ -2,15 +2,17 @@ import React from "react";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import Nav from "../Nav";
+import Button from "@material-ui/core/Button";
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
   about: {
     display: "flex",
     flexDirection: "column",
-    // alignItems: "center",
+    alignItems: "center",
     justifyContent: "space-between",
     // margin: "auto",
-    marginTop: "-40px",
+    marginTop: "-100px",
     height: "70vh",
     padding: "0px 10px 10px 10px",
     width: "100%",
@@ -24,10 +26,14 @@ const useStyles = makeStyles(theme => ({
     height: "40%",
     backgroundColor: "grey",
   },
+  button: {
+    width: "140px"
+  }
 }));
 
 const HomeInfo = () => {
   const classes = useStyles();
+  const history = useHistory();
 
   return (
     <Grid className={classes.about}>
@@ -38,7 +44,7 @@ const HomeInfo = () => {
         KOREAN ATMOSPHERE AND DINING EXPERIENCE TO MELBOURNE’S STREETS
       </p>
       {/* <div className={classes.location}>gmaps embed</div> */}
-      
+      <Button className={classes.button} variant="contained" color="primary" onClick={() => history.push('/menu')}>SEE MENU</Button>
     </Grid>
   );
 };
