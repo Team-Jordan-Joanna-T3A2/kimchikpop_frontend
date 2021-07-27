@@ -1,24 +1,3 @@
-// import React from "react";
-// import Nav from "../Nav";
-
-
-// //images
-
-
-// const Gallery = () => {
-//     return(
-//         <div>
-//             <Nav type="public" />
-
-//         </div>
-
-
-//     );
-
-// };
-
-// export default Gallery;
-
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -31,7 +10,10 @@ import Typography from '@material-ui/core/Typography';
 import Nav from "../Nav";
 
 //images
-// import Gallery1 from "../../res/Gallery1.jpg"
+import Gallery1 from "../../res/Gallery1.jpg"
+import Gallery2 from "../../res/Gallery2.jpg"
+import Gallery3 from "../../res/Gallery3.jpg"
+import Gallery4 from "../../res/Gallery4.jpg"
 
 const useStyles = makeStyles({
   root: {
@@ -55,7 +37,7 @@ export default function MediaCard() {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image="../../res/Gallery1.jpg"
+          image={Gallery1}
           title="KBBQ"
         />
         <CardContent>
@@ -63,10 +45,60 @@ export default function MediaCard() {
             KBBQ
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            Delicious Korean cuisine method of grilling meat.
+            Delicious Korean cuisine method of grilling meat
           </Typography>
         </CardContent>
       </CardActionArea>
+
+      <CardActionArea>
+        <CardMedia
+          className={classes.media}
+          image={Gallery2}
+          title="Kimbap"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2">
+            Kimbap
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+            Korean Sushi Roll
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+
+      <CardActionArea>
+        <CardMedia
+          className={classes.media}
+          image={Gallery3}
+          title="KFC Korean Fried Chicken"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2">
+          KFC Korean Fried Chicken
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+          Crispy and Yummy
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+
+      <CardActionArea>
+        <CardMedia
+          className={classes.media}
+          image={Gallery4}
+          title="Bimbimbap with Side Dishes"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2">
+          Bimbimbap with Side Dishes
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+          Korean mixed rice dish with side dishes
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+
+
     </Card>
     </div>
   );
