@@ -80,19 +80,19 @@ export default function ButtonAppBar(props) {
       <div className={classes.root}>
         <AppBar className={classes.appBar}>
           <Toolbar>
-            <IconButton
+            {/* <IconButton
               edge="start"
               className={classes.menuButton}
               color="inherit"
               aria-label="menu"
             >
               <MenuIcon />
-            </IconButton>
+            </IconButton> */}
             <Grid className={classes.buttons}>
               <Button
                 variant="outlined"
                 color="inherit"
-                className={clsx(classes.button, classes.desktopButton)}
+                className={classes.button}
                 onClick={() => history.push("/")}
               >
                 HOME
