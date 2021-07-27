@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
@@ -15,17 +15,27 @@ const useStyles = makeStyles(theme => ({
     marginBottom: "10px",
   },
   match: {
-    display: "none"
+    display: "none",
   },
   noMatch: {
     display: "initial",
-    color: "red"
+    color: "red",
+    margin: "0px",
+    padding: "0px",
+  },
+  label: {
+    textAlign: "left",
+    marginBottom: "0px",
+  },
+  field: {
+    marginTop: "0px",
   },
 }));
 
 const SignUpForm = () => {
   let history = useHistory();
 
+  const [formIsValid, setFormIsValid] = useState(false);
   const [passwordsMatch, setPasswordsMatch] = useState(false);
   const [signUpForm, setSignUpForm] = useState({
     user: {
@@ -45,10 +55,11 @@ const SignUpForm = () => {
         [e.target.name]: e.target.value,
       },
     });
+    console.log(signUpForm);
   };
 
   const submitForm = () => {
-    if(passwordsMatch === false) return;
+    if (passwordsMatch === false) return;
 
     console.log("Starting POST");
     const data = JSON.stringify(signUpForm);
@@ -68,7 +79,10 @@ const SignUpForm = () => {
   };
 
   const checkPasswordConfirmation = e => {
-    if (e.target.value === signUpForm.user.password) {
+    changeInput(e);
+    if (e.target.value.length === 0 || signUpForm.user.password.length === 0) {
+      setPasswordsMatch(false);
+    } else if (e.target.value === signUpForm.user.password) {
       setPasswordsMatch(true);
     } else {
       setPasswordsMatch(false);
@@ -77,49 +91,59 @@ const SignUpForm = () => {
 
   const { username, password, password_confirmation } = signUpForm.user;
 
+  useEffect(() => {
+    if (username.length > 0 && password.length > 0 && passwordsMatch === true) {
+      setFormIsValid(true);
+    } else {
+      setFormIsValid(false);
+    }
+  });
+
   return (
     <div>
-      Create a New Account
-      <Grid className={classes.formField}>
-        <form className="signup-form">
-          <label className={classes.label}>Username:</label>
+      <Grid className={classes.root}>
+        <form className={classes.root}>
+          <label className={classes.label}>USERNAME</label>
           <input
+            className={classes.field}
             type="text"
             value={username}
             onChange={changeInput}
             name="username"
           />
 
-          <label className={classes.label}>Password:</label>
+          <label className={classes.label}>PASSWORD</label>
           <input
+            className={classes.field}
             type="password"
             value={password}
-            onChange={changeInput}
+            onChange={checkPasswordConfirmation}
             name="password"
           />
 
-          <label className={classes.label}>Confirm Password:</label>
+          <label className={classes.label}>CONFIRM PASSWORD</label>
           <input
+            className={classes.field}
             type="password"
             value={password_confirmation}
             onChange={checkPasswordConfirmation}
             name="password_confirmation"
           />
         </form>
-        <p className={passwordsMatch ? classes.match : classes.noMatch}>
-          Passwords do not match
-        </p>
-
+      <Button
+        variant="contained"
+        color={formIsValid === true ? "primary" : ""}
+        disabled={formIsValid === true ? false : true}
+        id="submit"
+        className={classes.submit}
+        onClick={submitForm}
+      >
+        ADD NEW STAFF
+      </Button>
+      <p className={passwordsMatch ? classes.match : classes.noMatch}>
+        Passwords do not match
+      </p>
       </Grid>
-        <Button
-          variant="contained"
-          color="primary"
-          id="submit"
-          className={classes.submit}
-          onClick={submitForm}
-        >
-          ADD NEW STAFF
-        </Button>
     </div>
   );
 };

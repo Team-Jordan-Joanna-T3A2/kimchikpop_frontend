@@ -40,17 +40,6 @@
   }
 }
 
-
-.signup-form {
-  display: flex;
-  flex-direction: column;
-
-}
-
-.signup-form label {
-  margin: 10px 0px;
-}
-
 #submit {
   margin: 10px 0px;
 }
