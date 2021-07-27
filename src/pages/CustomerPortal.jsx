@@ -9,6 +9,7 @@ import Grid from "@material-ui/core/Grid";
 import HomeInfo from "../components/info/HomeInfo";
 import About from "../components/info/About";
 import Menu from "../components/info/Menu";
+import Gallery from "../components/info/Gallery"
 
 const useStyles = makeStyles(theme => ({
   title: {
@@ -35,6 +36,7 @@ const CustomerPortal = () => {
           <Route exact path="/" component={HomeInfo}/>
           <Route exact path="/about" component={About}/>
           <Route exact path="/menu" component={Menu}/>
+          <Route exact path="/gallery" component={Gallery}/>
         </Switch>
       </Router>
     </Grid>

@@ -117,7 +117,7 @@ export default function ButtonAppBar(props) {
                 variant="outlined"
                 color="inherit"
                 className={clsx(classes.button, classes.desktopButton)}
-                onClick={() => history.push("/menu")}
+                onClick={() => history.push("/gallery")}
               >
                 GALLERY
               </Button>
