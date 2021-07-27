@@ -27,11 +27,11 @@ const theme = createTheme({
     secondary: {
       main: "#000000",
     },
-    danger: {
-      main: "red"
+    error: {
+      main: "#f44336",
     },
-    confirm: {
-      main: "green"
+    success: {
+      main: "#4caf50",
     },
   },
   buttonWidth: "100px",

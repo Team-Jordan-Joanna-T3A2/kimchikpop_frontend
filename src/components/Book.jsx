@@ -6,6 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import { Radio, RadioGroup, FormControlLabel, FormLabel, FormControl } from "@material-ui/core";
 import axios from "axios";
+import clsx from "clsx";
 
 const useStyles = makeStyles((theme) => ({
   bookingContainer: {
@@ -14,6 +15,11 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     alignItems: "center",
     justifyContent: "center",
+    border: "1px solid",
+    borderRadius: "5px",
+    padding: "5px",
+    minWidth: "300px",
+    marginTop: "-60px"
   },
   formField: {
     display: "flex",    
@@ -21,13 +27,19 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "left",
     alignItems: "center",
   },
+  radio: {
+    display: "flex", 
+    flexDirection: "column",
+    flexWrap: "wrap",
+  },
   label: {
     color: "gray",
     marginRight: "auto",
+    textAlign: "left"
   },
   submit: {
-    margin: "20px",
-    width: theme.buttonWidth,
+    margin: "40px",
+    width: "160px",
   },
   bookingForm: {
   display: "flex",
@@ -36,6 +48,9 @@ const useStyles = makeStyles((theme) => ({
   "& > label": {
     margin: "50px 0px"
   }
+},
+inputField: {
+  width: "200px"
 }
 }));
 
@@ -90,7 +105,7 @@ const Book = () => {
       <Nav type="public" />
       <Grid className={classes.bookingContainer}>
         <form className={classes.formField} onSubmit={submitBooking}>
-          <label>DATE :</label>
+          <label classname={classes.label}>DATE :</label>
           <DatePicker
             calendarAriaLabel="Toggle calendar"
             clearAriaLabel="Clear value"
@@ -103,8 +118,8 @@ const Book = () => {
             format="dd-MM-yyyy"
           />
 
-          <label>TIME :</label>
-          <FormControl className={classes.formField}>
+          <label classname={classes.label}>TIME :</label>
+          <FormControl className={clsx(classes.formField, classes.radio)}>
           <RadioGroup name="time" value={details.reservation.time} onChange={changeInput}>
               <FormControlLabel value="11:30am" control={<Radio />} label="11:30am" />
               <FormControlLabel value="1:30pm" control={<Radio />} label="1:30pm" />
@@ -115,21 +130,21 @@ const Book = () => {
           </FormControl>
 
           <Grid className={classes.formField}>
-            <label>GUESTS :</label>
-            <input name="pax" type="number" value={details.reservation.pax} min="1" max="5" onChange={changeInput}></input>
+            <label classname={classes.label}>GUESTS :</label>
+            <input classname={classes.inputField} name="pax" type="number" value={details.reservation.pax} min="1" max="5" onChange={changeInput}></input>
             
             <h2>YOUR DETAILS</h2>
 
-            <label>FIRST NAME :</label>
+            <label classname={classes.label}>FIRST NAME :</label>
             <input name="first_name" type="text" value={details.reservation.first_name} onChange={changeInput} />
 
-            <label>LAST NAME :</label>
+            <label classname={classes.label}>LAST NAME :</label>
             <input name="last_name" type="text" value={details.reservation.last_name} onChange={changeInput} />
 
-            <label>EMAIL :</label>
+            <label classname={classes.label}>EMAIL :</label>
             <input name="email" type="email" value={details.reservation.email} onChange={changeInput} />
 
-            <label>PHONE NUMBER :</label>
+            <label classname={classes.label}>PHONE NUMBER :</label>
             <input name="phone_number" type="text" value={details.reservation.phone_number} onChange={changeInput} />
           </Grid>
 

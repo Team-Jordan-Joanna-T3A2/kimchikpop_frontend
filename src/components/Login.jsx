@@ -20,6 +20,9 @@ const useStyles = makeStyles(theme => ({
     margin: "20px",
     width: theme.buttonWidth,
   },
+  title: {
+    letterSpacing: "-2px",
+  },
 }));
 
 const Login = () => {
@@ -52,7 +55,8 @@ const Login = () => {
 
   return (
     <Grid className={classes.formField}>
-    <h1>LOG IN</h1>
+    <h1 className={classes.title}>KIMCHI&KPOP</h1>
+    <h1>STAFF LOG IN</h1>
       <label className={classes.label}>USERNAME</label>
       <input type="text" name="username" onChange={handleChange} />
       <label className={classes.label}>PASSWORD</label>

@@ -145,7 +145,11 @@ export default function ButtonAppBar(props) {
               <Button
                 color="inherit"
                 variant="outlined"
-                className={classes.button}
+                className={
+                  localStorage.getItem("jwt")
+                    ? classes.button
+                    : clsx(classes.button, classes.hidden)
+                }
                 onClick={() => history.push("/staff")}
               >
                 STAFF MENU

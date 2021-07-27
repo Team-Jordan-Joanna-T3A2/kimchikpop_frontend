@@ -77,13 +77,6 @@ const StaffMenu = () => {
         >
           MANAGE STAFF
         </Button>
-        <Button
-          className={classes.menuButton}
-          variant="contained"
-          color="primary"
-        >
-          MANAGE FRONT PAGE
-        </Button>
       </Grid>
     </div>
   );

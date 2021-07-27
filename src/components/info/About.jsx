@@ -33,7 +33,7 @@ const HomeInfo = () => {
     <Grid className={classes.about}>
       <Nav type="public" />
       <p className={classes.blurb}>
-        <h1>About KIMCHI&KPOP</h1>
+        <h1>ABOUT KIMCHI&KPOP</h1>
         KIMCHI & KPOP WAS BORN IN 2019 WITH A MISSION TO BRING AN AUTHENTIC
         KOREAN ATMOSPHERE AND DINING EXPERIENCE TO MELBOURNE’S STREETS
       </p>

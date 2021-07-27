@@ -94,10 +94,10 @@ const ConfirmDelete = props => {
           </p>
         </Grid>
         <Grid className={classes.buttons}>
-          <Button variant="contained" colour="confirm" onClick={confirm}>
+          <Button variant="contained" colour="success" onClick={confirm}>
             CONFIRM
           </Button>
-          <Button variant="contained" colour="danger" onClick={cancel}>
+          <Button variant="contained" colour="error" onClick={cancel}>
             CANCEL
           </Button>
         </Grid>
