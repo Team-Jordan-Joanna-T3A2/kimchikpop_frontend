@@ -49,7 +49,7 @@ const HomeInfo = () => {
         <h1>COME FOR THE KIMCHI,</h1>
         <h1>STAY FOR THE KPOP</h1>
       </Grid>
-      <h1>MENU & MORE ➞</h1>
+      
     </Grid>
   );
 };
