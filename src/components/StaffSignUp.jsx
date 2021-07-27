@@ -20,7 +20,6 @@ const StaffSignUp = () => {
       <h1 className={classes.title}>KIMCHI&KPOP</h1>
       <h2>ADD STAFF</h2>
         <SignUpForm/>
-      {/* <Login /> */}
     </div>
   );
 };

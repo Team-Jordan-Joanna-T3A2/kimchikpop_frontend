@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 // Components
-import AddStaffSuccess from "./AddStaffSuccess"
+import AddStaffSuccess from "./AddStaffSuccess";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -67,23 +67,27 @@ const SignUpForm = () => {
     if (passwordsMatch === false) return;
 
     console.log("Starting POST");
-    const data = JSON.stringify(signUpForm);
+    console.log("signUpForm", signUpForm);
+    const data = {
+      user: {
+        username: signUpForm.user.username,
+        password: signUpForm.user.password
+      }
+    }
     const config = {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("jwt"),
       },
     };
 
-    axios
-      .post("http://localhost:5000/api/users/addstaff", signUpForm, config)
-      .then(() =>
-        setRequestSuccess(true)
-      )
-      .catch(errors => {
-        console.log(errors);
-      });
+    console.log(data, config);
 
-      setSignUpSent(true);
+    axios
+      .post("http://localhost:5000/api/users/addstaff", data, config)
+      .then(() => setRequestSuccess(true))
+      .catch(errors => console.log(errors));
+
+    setSignUpSent(true);
   };
 
   const checkPasswordConfirmation = e => {
@@ -107,57 +111,57 @@ const SignUpForm = () => {
     }
   });
 
-if(!signUpSent) {
-  return (
-    <div>
-      <Grid className={classes.root}>
-        <form className={classes.root}>
-          <label className={classes.label}>USERNAME</label>
-          <input
-            className={classes.field}
-            type="text"
-            value={username}
-            onChange={changeInput}
-            name="username"
-          />
+  if (!signUpSent) {
+    return (
+      <div>
+        <Grid className={classes.root}>
+          <form className={classes.root}>
+            <label className={classes.label}>USERNAME</label>
+            <input
+              className={classes.field}
+              type="text"
+              value={username}
+              onChange={changeInput}
+              name="username"
+            />
 
-          <label className={classes.label}>PASSWORD</label>
-          <input
-            className={classes.field}
-            type="password"
-            value={password}
-            onChange={checkPasswordConfirmation}
-            name="password"
-          />
+            <label className={classes.label}>PASSWORD</label>
+            <input
+              className={classes.field}
+              type="password"
+              value={password}
+              onChange={checkPasswordConfirmation}
+              name="password"
+            />
 
-          <label className={classes.label}>CONFIRM PASSWORD</label>
-          <input
-            className={classes.field}
-            type="password"
-            value={password_confirmation}
-            onChange={checkPasswordConfirmation}
-            name="password_confirmation"
-          />
-        </form>
-        <Button
-          variant="contained"
-          color={formIsValid === true ? "primary" : ""}
-          disabled={formIsValid === true ? false : true}
-          id="submit"
-          className={classes.submit}
-          onClick={submitForm}
-        >
-          ADD NEW STAFF
-        </Button>
-        <p className={passwordsMatch ? classes.match : classes.noMatch}>
-          Passwords do not match
-        </p>
-      </Grid>
-    </div>
-  );
-} else {
-  return(<AddStaffSuccess success={requestSuccess ? true : false}/>)
-}
+            <label className={classes.label}>CONFIRM PASSWORD</label>
+            <input
+              className={classes.field}
+              type="password"
+              value={password_confirmation}
+              onChange={checkPasswordConfirmation}
+              name="password_confirmation"
+            />
+          </form>
+          <Button
+            variant="contained"
+            color={formIsValid === true ? "primary" : ""}
+            disabled={formIsValid === true ? false : true}
+            id="submit"
+            className={classes.submit}
+            onClick={submitForm}
+          >
+            ADD NEW STAFF
+          </Button>
+          <p className={passwordsMatch ? classes.match : classes.noMatch}>
+            Passwords do not match
+          </p>
+        </Grid>
+      </div>
+    );
+  } else {
+    return <AddStaffSuccess signUpSent={signUpSent} setSignUpSent={setSignUpSent} success={requestSuccess ? true : false} />;
+  }
 };
 
 export default SignUpForm;

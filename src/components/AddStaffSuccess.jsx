@@ -15,6 +15,12 @@ const AddStaffSuccess = props => {
   let history = useHistory();
   const classes = useStyles();
 
+  const backToForm = () => {
+    console.log(props);
+    props.setSignUpSent(false);
+console.log(props);
+  };
+
   if (props.success === true) {
     return (
       <div>
@@ -35,11 +41,7 @@ const AddStaffSuccess = props => {
       <div>
         <Grid className={classes.root}>
           <h5>ADDING STAFF FAILED</h5>
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={() => history.goBack()}
-          >
+          <Button variant="contained" color="primary" onClick={backToForm}>
             TRY AGAIN
           </Button>
         </Grid>
