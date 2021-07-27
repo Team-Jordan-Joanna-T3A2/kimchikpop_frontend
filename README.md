@@ -1,5 +1,18 @@
 # T3A2-B - Joanna and Jordan - Kimchi & Kpop
 
+## Deployed Website link
+
+[Deployed website link]([https://](https://kimchiandkpop.netlify.app/))
+[Deployed back-end](https://quiet-atoll-98684.herokuapp.com/)
+
+## Instructions
+
+Navigating to the provided website link will take you to the customer portal. This is what customers will be able to see and interact with. To view the staff portion of the website, manually navigate to `https://kimchiandkpop.netlify.app/staff`. You can log in with username admin and password password. 
+## GitHub Repo
+
+[Front-end repo](https://github.com/Team-Jordan-Joanna-T3A2/kimchikpop_frontend)
+[Back-end repo](https://github.com/Team-Jordan-Joanna-T3A2/kimchikpop-api)
+
 ## Purpose
 
 This full-stack web application came to be when we were approached by our client - the owners of a small Korean restaurant. They were a young couple who had opened a Korean restaurant in the Melbourne CBD in 2019. Their business has been thriving and increasing since their opening because of the delicious food,quick service that they provided and affordable prices. With the COVID pandemic starting in March 2020 however, the client found that they needed to adapt their online presence to fit in with the current and ever-changing COVID restrictions. It was with this purpose that the client sought our team and commissioned us to create a better web application that would scale and adapt with their increased sales and the constantly evolving COVID restrictions and regulations.
@@ -51,8 +64,6 @@ This is a young couple who started their business end of 2018 to early 2019. The
 
 They are fairly tech savvy but would like to further upgrade their current online presence so that they can more easily and efficiently handle the increase in diners while safely operating in accordance with the current COVID restrictions.
 
-The clients will have access to the dashboard for the booking system which grants them administrative privileges so that they can update the booking settings as they see fit.
-
 Another thing to consider is that contact details of the diners will be stored in an easily accessible way. In this way, should contact tracing need to be done, the clients will have the information ready and available for the Victorian government to utilize.
 
 ### 2. The Diners
@@ -82,16 +93,19 @@ The focus of the booking system format and functionality will keep this target a
 ##### UI
 
 * Material UI - provides configurable components for many UI elements
-* react-date-picker - provides a date picker so users can specify the date of their booking
-* axios - provides promise-based web requests. Used to communicate with back-end
-* clsx - allows the combination of multiple classes in MUI components
+* `react-date-picker` - provides a date picker so users can specify the date of their booking
+* `axios` - provides promise-based web requests. Used to communicate with back-end
+* `clsx` - allows the combination of multiple classes in MUI components
+
 ### Back-end
 
 Ruby on Rails (Framework)
 
 #### Additional back-end software
 
-* secure_random_string - 
+* `secure_random_string` - provides method to generate random string securely, used for booking codes
+* `jwt` - allows a JWT token to be encoded and provided to the front-end which is used to authenticate logged in users
+
 ### Database
 
 PostgreSQL
