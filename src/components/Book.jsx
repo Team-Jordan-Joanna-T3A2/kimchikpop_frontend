@@ -8,6 +8,9 @@ import { Radio, RadioGroup, FormControlLabel, FormLabel, FormControl } from "@ma
 import axios from "axios";
 import clsx from "clsx";
 
+// Components
+import AddBookingSuccess from "./AddBookingSuccess";
+
 const useStyles = makeStyles((theme) => ({
   bookingContainer: {
     display: "flex",
@@ -50,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
   }
 },
 inputField: {
-  width: "200px"
+  width: "150px"
 }
 }));
 
@@ -58,6 +61,8 @@ inputField: {
 
 const Book = () => {
   const classes = useStyles();
+  const [bookingSent, setBookingSent] = useState(false);
+  const [bookingSuccess, setBookingSuccess] = useState(false);
   const [date, setDate] = useState(new Date());
   const [time, setTime] = useState('11:30am');
   const [details, setDetails] = useState({
@@ -81,31 +86,49 @@ const Book = () => {
     }});
   };
 
-  const submitBooking = async e =>{
-    const body = details
+  const submitBooking = () => {
+
+      const body = details
 
     body.reservation.time = date.toDateString() + " " + body.reservation.time;
-    console.log(body);
+    console.log("body", body);
+    console.log("Starting POST");
+    axios
+      .post("https://quiet-atoll-98684.herokuapp.com/api/reservations", body)
+      .then((res) => {
+        setBookingSuccess(true);
+        console.log(res.message);
+    })
+      .catch(errors => console.log(errors));
 
-    try {
-      e.preventDefault()
-      const saveData = await axios.post('https://quiet-atoll-98684.herokuapp.com/api/reservations', body, 
-      {
-        headers:{'Content-Type': 'application/json'}
-      })
-      console.log(saveData)
-    }
-    catch(exception){
-      console.log(exception.response)
-    }
-  }
+    setBookingSent(true);
+  };
 
+  // const submitBooking = async e =>{
+  //   const body = details
+
+  //   body.reservation.time = date.toDateString() + " " + body.reservation.time;
+  //   console.log(body);
+
+  //   try {
+  //     e.preventDefault()
+  //     const saveData = await axios.post('https://quiet-atoll-98684.herokuapp.com/api/reservations', body, 
+  //     {
+  //       headers:{'Content-Type': 'application/json'}
+  //     })
+  //     console.log(saveData)
+  //   }
+  //   catch(exception){
+  //     console.log(exception.response)
+  //   }
+  // }
+  if (!bookingSent) {
   return (
     <div>
       <Nav type="public" />
       <Grid className={classes.bookingContainer}>
         <form className={classes.formField} onSubmit={submitBooking}>
-          <label classname={classes.label}>DATE :</label>
+          <label className={classes.label}>DATE :</label>
           <DatePicker
             calendarAriaLabel="Toggle calendar"
             clearAriaLabel="Clear value"
@@ -118,7 +141,7 @@ const Book = () => {
             format="dd-MM-yyyy"
           />
 
-          <label classname={classes.label}>TIME :</label>
+          <label className={classes.label}>TIME :</label>
           <FormControl className={clsx(classes.formField, classes.radio)}>
           <RadioGroup name="time" value={details.reservation.time} onChange={changeInput}>
               <FormControlLabel value="11:30am" control={<Radio />} label="11:30am" />
@@ -130,21 +153,21 @@ const Book = () => {
           </FormControl>
 
           <Grid className={classes.formField}>
-            <label classname={classes.label}>GUESTS :</label>
-            <input classname={classes.inputField} name="pax" type="number" value={details.reservation.pax} min="1" max="5" onChange={changeInput}></input>
+            <label className={classes.label}>GUESTS :</label>
+            <input className={classes.inputField} name="pax" type="number" value={details.reservation.pax} min="1" max="5" onChange={changeInput}></input>
             
             <h2>YOUR DETAILS</h2>
 
-            <label classname={classes.label}>FIRST NAME :</label>
+            <label className={classes.label}>FIRST NAME :</label>
             <input name="first_name" type="text" value={details.reservation.first_name} onChange={changeInput} />
 
-            <label classname={classes.label}>LAST NAME :</label>
+            <label className={classes.label}>LAST NAME :</label>
             <input name="last_name" type="text" value={details.reservation.last_name} onChange={changeInput} />
 
-            <label classname={classes.label}>EMAIL :</label>
+            <label className={classes.label}>EMAIL :</label>
             <input name="email" type="email" value={details.reservation.email} onChange={changeInput} />
 
-            <label classname={classes.label}>PHONE NUMBER :</label>
+            <label className={classes.label}>PHONE NUMBER :</label>
             <input name="phone_number" type="text" value={details.reservation.phone_number} onChange={changeInput} />
           </Grid>
 
@@ -160,7 +183,11 @@ const Book = () => {
         </form>
       </Grid>
     </div>
-  );
+  ) } else { 
+    return(
+      <AddBookingSuccess setBookingSent={setBookingSent} success={bookingSuccess ? true : false} />
+    )
+  }
 };
 
 export default Book;
